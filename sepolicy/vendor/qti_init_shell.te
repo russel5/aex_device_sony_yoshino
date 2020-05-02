@@ -1,0 +1,4 @@
+# qti_init_shell.te
+
+# init.qcom.early_boot.sh video_mode
+allow qti_init_shell sysfs:file setattr;
