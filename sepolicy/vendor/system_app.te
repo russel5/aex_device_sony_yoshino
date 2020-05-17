@@ -1,0 +1,13 @@
+# system_app.te
+
+binder_call(system_app, cacaoserver)
+binder_call(system_app, hal_miscta_default)
+
+allow system_app hal_miscta_hwservice:hwservice_manager find;
+
+# Alllow CustomizationSelector access to /cache/modem/*
+allow system_app modemsw_cache_file:dir rw_dir_perms;
+allow system_app modemsw_cache_file:file create_file_perms;
+
+# Alllow CustomizationSelector to read Sony prop
+allow system_app semc_version_prop:file { getattr open read };
